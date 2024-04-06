@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    padding: 30px 20px;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.wrapper {
+    min-height: 350px;
+    position: relative;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+.formContainer > div:nth-child(1) {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 250px;
+}
+
+.formContainer > div:nth-child(2) {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 250px;
+}
+
+.submitButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 22px;
+    gap: 5px
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    gap: 10px
+}

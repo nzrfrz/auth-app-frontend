@@ -1,0 +1,80 @@
+.container {
+    height: 100%;
+    padding: 0px 10px;
+}
+
+.contentWrapper {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tableWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cardGridContainer {
+    display: none;
+}
+
+.cardGridWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-right: 5px;
+    overflow-y: auto;
+}
+
+.cardTitleWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 0px;
+    gap: 5px;
+}
+
+.cardTitleWrapper > div {
+    width: 95px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.cardContentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cardContentWrapper > div {
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.cardFooterWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardPaginationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@media (width <= 768px) {
+    .tableWrapper {
+        display: none;
+    }
+
+    .cardGridContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

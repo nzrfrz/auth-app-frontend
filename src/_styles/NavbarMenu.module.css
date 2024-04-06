@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.ddContentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 12px;
+    gap: 5px;
+}
+
+.profileDisplayWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profileDisplayWrapper > div:nth-child(1) {
+    width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileDisplayWrapper > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profileDisplayWrapper > div:nth-child(2) > span {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.ddMenuWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+}
+
+.ddMenuWrapper:hover {
+    cursor: pointer;
+    color: #0891b2;
+    border-radius: 8px;
+    border: 1px solid #0891b2;
+    transition: all 0.2s;
+}
+
+.ddMenuWrapper:active {
+    scale: 0.95;
+    transition: all 0.2s;
+}
+
+.ddMenuWrapper > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+@media (width <= 576px) {
+    .container {
+        display: none;
+    }
+}

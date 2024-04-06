@@ -1,0 +1,74 @@
+.container {
+    display: none;
+}
+
+.drawerContentWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+}
+
+.userProfileWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profileDisplayWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profileDisplayWrapper > div:nth-child(1) {
+    width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileDisplayWrapper > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profileDisplayWrapper > div:nth-child(2) > span {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.drawerMenuWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+}
+
+.drawerMenuWrapper:hover {
+    cursor: pointer;
+    color: #0891b2;
+    border-radius: 8px;
+    border: 1px solid #0891b2;
+    transition: all 0.2s;
+}
+
+.drawerMenuWrapper:active {
+    scale: 0.95;
+    transition: all 0.2s;
+}
+
+.drawerMenuWrapper > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+@media (width <= 576px) {
+    .container {
+        display: flex;
+    }
+}

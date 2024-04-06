@@ -1,0 +1,48 @@
+.container {
+    height: 100%;
+    display: flex;
+    padding: 0px 20px 20px 20px;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.wrapper {
+    position: relative;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.headerTitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px
+}
+
+.cardContentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.avatarWrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    width: 250px;
+    flex: 1 0 250px;
+}
+
+.formWrapper {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 250px;
+}
