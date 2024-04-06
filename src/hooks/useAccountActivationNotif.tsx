@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+// import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { ResponseInterface, UserInfoInterface } from "../_helpers";
 import { isAccountAlreadyActive, resendActivationLink } from "../api";
@@ -7,7 +8,7 @@ import { isAccountAlreadyActive, resendActivationLink } from "../api";
 export const useAccountActivationNotif = () => {
     const totalTime = 30;
     const { state } = useLocation();
-    const navigateTo = useNavigate();
+    // const navigateTo = useNavigate();
 
     const [secondsLeft, setSecondsLeft] = useState<number>(30);
     
@@ -51,17 +52,17 @@ export const useAccountActivationNotif = () => {
         return () => clearInterval(intervalId);
     }, [secondsLeft]);
 
-    useEffect(() => {
-        const socketClient = new WebSocket(`${import.meta.env.VITE_WS_BASE_PATH}`);
-        socketClient.addEventListener("message", (message: any) => { 
-            const messageObject = JSON.parse(message.data);
-            if (messageObject?.id === state?.id && messageObject?.isActivated === true) navigateTo("/", { replace: true });
-        });
+    // useEffect(() => {
+    //     const socketClient = new WebSocket(`${import.meta.env.VITE_WS_BASE_PATH}`);
+    //     socketClient.addEventListener("message", (message: any) => { 
+    //         const messageObject = JSON.parse(message.data);
+    //         if (messageObject?.id === state?.id && messageObject?.isActivated === true) navigateTo("/", { replace: true });
+    //     });
 
-        return () => {
-            socketClient.close();
-        };
-    }, []);
+    //     return () => {
+    //         socketClient.close();
+    //     };
+    // }, []);
     
     return {
         state,
