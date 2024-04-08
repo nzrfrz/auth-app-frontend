@@ -26,7 +26,8 @@ export const ModalEditUser: React.FC<ModalEditUserInterface> = ({
 
     const {
         form,
-        onFinishForm
+        onFinishForm,
+        mutateLoading,
     } = useEditUser({data, isModalEditOpen, setIsModalEditOpen});
     
     return (
@@ -34,19 +35,25 @@ export const ModalEditUser: React.FC<ModalEditUserInterface> = ({
             centered
             title="Edit user"
             open={isModalEditOpen} 
+            closable={!mutateLoading}
+            maskClosable={!mutateLoading}
             onCancel={() => setIsModalEditOpen && setIsModalEditOpen(false)}
             footer={[
                 <MyButton 
                     key="cancel"
                     text="Cancel"
                     colorType="default"
+                    loading={mutateLoading}
+                    disabled={mutateLoading}
                     onClick={() => setIsModalEditOpen && setIsModalEditOpen(false)}
                 />,
                 <MyButton 
                     key="save"
-                    text="Save"
+                    text={mutateLoading === true ? "Saving data..." : "Save"}
                     colorType="success"
                     icon={<SaveOutlined />}
+                    loading={mutateLoading}
+                    disabled={mutateLoading}
                     onClick={() => onFinishForm()}
                 />
             ]}
@@ -56,6 +63,7 @@ export const ModalEditUser: React.FC<ModalEditUserInterface> = ({
                 layout="vertical"
                 name="editUserInfo"
                 scrollToFirstError
+                disabled={mutateLoading}
                 wrapperCol={{ span: 24 }}
             >
                 <SimpleInputForm 

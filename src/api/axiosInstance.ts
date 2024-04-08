@@ -31,9 +31,9 @@ request.interceptors.response.use(
         if (error?.response?.status === 401) return await request.get("/auth/renew-access-token/");
         else if (error?.response?.status === 403 && alreadyLogout === false) {
             alreadyLogout = true;
-            // await request.get("/user/logout/");
-            // window.history.pushState({}, "", "/login");
-            // return false;
+            await request.get("/user/logout/");
+            window.history.pushState({}, "", "/login");
+            return false;
         }
         else return Promise.reject(error);
     }

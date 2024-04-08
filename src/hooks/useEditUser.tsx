@@ -64,6 +64,7 @@ export const useEditUser = ({data, isModalEditOpen, setIsModalEditOpen}: EditUse
 
     return {
         form,
-        onFinishForm
+        onFinishForm,
+        mutateLoading: mutateEdit?.isPending,
     };
 };

@@ -3,7 +3,7 @@ import { Outlet, Navigate } from "react-router-dom";
 
 export const PublicRoute = () => {
     const cookie = document.cookie;
-    console.log(cookie);  
+    // console.log(cookie);  
     // console.log("LOAD PUBLIC ROUTE", import.meta.env.VITE_WS_BASE_PATH);
 
     const loginCredentialValue = useMemo(() => {

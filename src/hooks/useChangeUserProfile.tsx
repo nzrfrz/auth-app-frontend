@@ -29,7 +29,7 @@ export const useChangeUserProfile = ({ actionData, toggleModalNotif }: ChangeUse
             navigateTo("/login", { replace: true });
         },
         onError: async (error: ResponseInterface) => {
-            console.log("ERROR MUTATE: ", error);
+            // console.log("ERROR MUTATE: ", error);
             if (error?.response?.status === 403) {
                 navigateTo("/login");
                 openNotification("error", "editUser", "Expired", "Your session is expired, please login again");
