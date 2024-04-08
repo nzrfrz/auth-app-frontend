@@ -1,4 +1,6 @@
 # React + TypeScript + Vite
+## Part of [rizdev-auth-app](https://github.com/nzrfrz/rizdev-auth-app) frontend section
+## Live app deploy on vercel with nodejs express as backend [click here](https://rizdev-auth-app.vercel.app/login)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
