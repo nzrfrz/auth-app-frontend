@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build_stag": "tsc && vite build --mode staging",
-    "build_prod": "tsc && vite build --mode production",
+    "dev": "vite --force",
+    "build-stag": "tsc && vite build --mode staging",
+    "build-prod": "tsc && vite build --mode production",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
@@ -16,6 +16,7 @@
     "axios": "^1.6.8",
     "dayjs": "^1.11.10",
     "lodash.debounce": "^4.0.8",
+    "pusher-js": "^8.4.0-rc2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",

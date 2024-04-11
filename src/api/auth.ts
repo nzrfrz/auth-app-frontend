@@ -27,7 +27,7 @@ export const sendPasswordReccoveryLink = async (payload: UserInfoInterface) => {
 };
 
 export const checkLinkValidity = async (token: string | undefined) => {
-    const response = await request.get(`/auth/check-link/token==${token}`);        
+    const response = await request.get(`/auth/check-link/token=${token}`);        
     return response.data;
 };
 

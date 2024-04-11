@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo } from "react";
 
 import { useQueryHook } from "../hooks";
-import { UserInfoInterface } from "../_helpers";
+import { UserInfoInterface, pusher } from "../_helpers";
 import { getUserProfile, logout } from "../api";
 // import { getUserProfile } from "../api";
 import { GlobalContext } from "../context/contextCreate";
@@ -13,7 +13,7 @@ export const PrivateRoute = () => {
     const navigateTo = useNavigate();
     const { setUserInfo, openNotification } = useContext(GlobalContext);
     // const { setUserInfo } = useContext(GlobalContext);
-    console.log("WS PATH: ", import.meta.env.VITE_WS_BASE_PATH);    
+    // console.log("WS PATH: ", import.meta.env.VITE_WS_BASE_PATH);    
 
     const userSelfInfoResponse = useQueryHook(["userSelfInfo"], getUserProfile(), false);    
 
@@ -40,6 +40,19 @@ export const PrivateRoute = () => {
     };
 
     useEffect(() => {
+        const channel = pusher.subscribe("userAuth");
+        channel.bind("login-event", (data: any) => {
+            if (loginCredentialValue?.id === data?.message?.id && loginCredentialValue?.refreshToken !== data?.message?.refreshToken) handleLogout();
+            // console.log("SUBS PUSHER: ", data?.message?.id);
+        });
+
+        return () => {
+            channel.unbind("login-event");
+        }
+    }, []);
+
+    /*
+    useEffect(() => {
         const socketClient = new WebSocket(`${import.meta.env.VITE_WS_BASE_PATH}`);
         socketClient.addEventListener("message", (message: any) => {
             const messageObject = JSON.parse(message.data);
@@ -50,6 +63,7 @@ export const PrivateRoute = () => {
             socketClient.close();
         };
     }, []);
+    */
 
     useEffect(() => {
         setUserInfo(userSelfInfoResponse?.data?.data as UserInfoInterface);
